@@ -4,24 +4,24 @@ class App
   def self.call(env)
     puts "Request start"
 
-    data = {}
+    response = {}
 
     GraphQL::Batch.batch do
-      AsyncLoader.load("https://httpbin.org/delay/1").then do
-        data.merge!(one: "delay/1")
+      AsyncLoader.load("https://httpbin.org/delay/1").then do |data|
+        response.merge!(one: data["url"])
       end
 
-      AsyncLoader.load("https://httpbin.org/delay/2").then do
-        data.merge!(two: "delay/2")
+      AsyncLoader.load("https://httpbin.org/delay/2").then do |data|
+        response.merge!(two: data["url"])
       end
 
-      AsyncLoader.load("https://httpbin.org/delay/2").then do
-        data.merge!(three: "delay/2 again")
+      AsyncLoader.load("https://httpbin.org/delay/2").then do |data|
+        response.merge!(three: data["url"])
       end
     end
 
     puts "Request finish"
 
-    [200, {}, [data.to_json]]
+    [200, {}, [response.to_json]]
   end
 end
