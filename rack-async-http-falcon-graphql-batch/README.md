@@ -4,6 +4,10 @@ Example app using:
   * async-http
   * graphql-batch
 
+ Notes:
+   * Runs on Heroku via Procfile
+   * Seems to support ASYNC_CONTAINER_PROCESSOR_COUNT=20 (?)
+
 Running and benchmarking:
 
     falcon serve --count 1
@@ -49,7 +53,3 @@ Benchmark results:
       98%   2536
       99%   2536
      100%   2536 (longest request)
-
- Notes:
-   * Runs on Heroku via Procfile
-   * Seems to support ASYNC_CONTAINER_PROCESSOR_COUNT=20 (?)
