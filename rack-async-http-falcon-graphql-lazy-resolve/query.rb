@@ -6,38 +6,32 @@ class Query < GraphQL::Schema::Object
   field :three, String, null: false
 
   def one
-    delay_1_data do |data|
-      data["url"]
-    end
+    Async { delay_1_data["url"] }
   end
 
   def two
-    delay_2_data do |data|
-      data["url"]
-    end
+    Async { delay_2_data["url"] }
   end
 
   def three
-    delay_2_data do |data|
-      data["url"]
-    end
+    Async { delay_2_data["url"] }
   end
 
   def internet
     @_internet ||= Async::HTTP::Internet.new
   end
 
-  def delay_1_data(&block)
-    @_delay_1_data ||= Async do
+  def delay_1_data
+    @_delay_1_data ||= begin
       puts "getting delay_1_data"
-      yield JSON.parse(internet.get("https://httpbin.org/delay/1").read)
+      JSON.parse(internet.get("https://httpbin.org/delay/1").read)
     end
   end
 
-  def delay_2_data(&block)
-    @_delay_2_data ||= Async do
+  def delay_2_data
+    @_delay_2_data ||= begin
       puts "getting delay_2_data"
-      yield JSON.parse(internet.get("https://httpbin.org/delay/2").read)
+      JSON.parse(internet.get("https://httpbin.org/delay/2").read)
     end
   end
 end
