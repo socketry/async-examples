@@ -21,17 +21,33 @@ class Query < GraphQL::Schema::Object
     @_internet ||= Async::HTTP::Internet.new
   end
 
+  def delay_1_semaphore
+    @_delay_1_semaphore ||= Async::Semaphore.new
+  end
+
+  def delay_2_semaphore
+    @_delay_2_semaphore ||= Async::Semaphore.new
+  end
+
   def delay_1_data
-    @_delay_1_data ||= begin
-      puts "getting delay_1_data"
-      JSON.parse(internet.get("https://httpbin.org/delay/1").read)
-    end
+    delay_1_semaphore.async do |task|
+      @_delay_1_data ||= begin
+        puts "-> delay_1_data"
+        data = JSON.parse(internet.get("https://httpbin.org/delay/1").read)
+        puts "<- delay_1_data"
+        data
+      end
+    end.result
   end
 
   def delay_2_data
-    @_delay_2_data ||= begin
-      puts "getting delay_2_data"
-      JSON.parse(internet.get("https://httpbin.org/delay/2").read)
-    end
+    delay_2_semaphore.async do |task|
+      @_delay_2_data ||= begin
+        puts "-> delay_2_data"
+        data = JSON.parse(internet.get("https://httpbin.org/delay/2").read)
+        puts "<- delay_2_data"
+        data
+      end
+    end.result
   end
 end
