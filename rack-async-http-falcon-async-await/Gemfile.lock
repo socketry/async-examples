@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    async (1.28.7)
+    async (1.28.9)
       console (~> 1.10)
       nio4r (~> 2.3)
       timers (~> 4.1)
@@ -22,12 +22,12 @@ GEM
       async-http (~> 0.53)
     async-io (1.30.2)
       async (~> 1.14)
-    async-pool (0.3.4)
+    async-pool (0.3.5)
       async (~> 1.25)
     build-environment (1.13.0)
-    console (1.10.1)
+    console (1.10.2)
       fiber-local
-    falcon (0.37.2)
+    falcon (0.37.3)
       async (~> 1.13)
       async-container (~> 0.16.0)
       async-http (~> 0.54.0)
@@ -40,9 +40,9 @@ GEM
       rack (>= 1.0)
       samovar (~> 2.1)
     fiber-local (1.0.0)
-    localhost (1.1.6)
+    localhost (1.1.7)
     mapping (1.1.1)
-    nio4r (2.5.5)
+    nio4r (2.5.7)
     process-metrics (0.2.1)
       console (~> 1.8)
       samovar (~> 2.1)
@@ -58,7 +58,7 @@ GEM
     samovar (2.1.4)
       console (~> 1.0)
       mapping (~> 1.0)
-    timers (4.3.2)
+    timers (4.3.3)
 
 PLATFORMS
   ruby
@@ -70,7 +70,7 @@ DEPENDENCIES
   rack
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 3.0.0p0
 
 BUNDLED WITH
-   2.1.4
+   2.2.5
