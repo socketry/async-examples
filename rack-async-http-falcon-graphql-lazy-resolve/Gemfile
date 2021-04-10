@@ -2,5 +2,6 @@ source "https://rubygems.org"
 
 gem "rack"
 gem "falcon"
+gem "thread-local"
 gem "async-http"
 gem "graphql"

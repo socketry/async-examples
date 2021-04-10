@@ -1,4 +1,5 @@
 require "async/http/internet"
+require "thread/local"
 
 class Query < GraphQL::Schema::Object
   field :one, String, null: false
@@ -17,8 +18,16 @@ class Query < GraphQL::Schema::Object
     Async { delay_2_data["url"] }
   end
 
+  module Internet
+    extend Thread::Local
+
+    def self.local
+      Async::HTTP::Internet.new
+    end
+  end
+
   def internet
-    @_internet ||= Async::HTTP::Internet.new
+    Internet.instance
   end
 
   def delay_1_semaphore
@@ -32,10 +41,9 @@ class Query < GraphQL::Schema::Object
   def delay_1_data
     delay_1_semaphore.async do |task|
       @_delay_1_data ||= begin
-        puts "-> delay_1_data"
-        data = JSON.parse(internet.get("https://httpbin.org/delay/1").read)
-        puts "<- delay_1_data"
-        data
+        Console.logger.measure(self, "delay_1_data") do
+          JSON.parse(internet.get("https://httpbin.org/delay/1").read)
+        end
       end
     end.result
   end
@@ -43,10 +51,9 @@ class Query < GraphQL::Schema::Object
   def delay_2_data
     delay_2_semaphore.async do |task|
       @_delay_2_data ||= begin
-        puts "-> delay_2_data"
-        data = JSON.parse(internet.get("https://httpbin.org/delay/2").read)
-        puts "<- delay_2_data"
-        data
+        Console.logger.measure(self, "delay_2_data") do
+          JSON.parse(internet.get("https://httpbin.org/delay/2").read)
+        end
       end
     end.result
   end

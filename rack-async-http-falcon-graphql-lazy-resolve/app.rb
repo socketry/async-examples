@@ -1,13 +1,17 @@
 require_relative "schema"
 
+require 'securerandom'
+
 class App
   def self.call(env)
-    puts "Request start"
+    logger = Console.logger.with(name: SecureRandom.uuid)
 
-    result = Schema.execute("query { one two three }")
+    Async(logger: logger) do
+      result = Console.logger.measure(self, "Schema.execute") do
+        Schema.execute("query { one two three }")
+      end
 
-    puts "Request finish"
-
-    [200, {}, [result.to_json]]
+      [200, {}, [result.to_json]]
+    end.wait
   end
 end
