@@ -8,7 +8,10 @@ class App
     internet = Async::HTTP::Internet.new
 
     url = "https://httpbin.org/delay/1"
-    headers = ["Accept-Encoding", "gzip"]
+    headers = [
+      ["Accept-Encoding", "gzip"],
+      ["User-Agent", "example"],
+    ]
 
     response = internet.get(url, headers).read
     data = JSON.parse(response)
