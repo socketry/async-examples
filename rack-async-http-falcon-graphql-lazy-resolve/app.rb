@@ -1,6 +1,5 @@
 require_relative "schema"
-
-require 'securerandom'
+require "securerandom"
 
 class App
   def self.call(env)

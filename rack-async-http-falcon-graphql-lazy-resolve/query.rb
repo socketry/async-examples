@@ -45,7 +45,7 @@ class Query < GraphQL::Schema::Object
           JSON.parse(internet.get("https://httpbin.org/delay/1").read)
         end
       end
-    end.result
+    end.wait
   end
 
   def delay_2_data
@@ -55,6 +55,6 @@ class Query < GraphQL::Schema::Object
           JSON.parse(internet.get("https://httpbin.org/delay/2").read)
         end
       end
-    end.result
+    end.wait
   end
 end

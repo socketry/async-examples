@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    async (1.28.7)
+    async (1.29.0)
       console (~> 1.10)
       nio4r (~> 2.3)
       timers (~> 4.1)
@@ -19,12 +19,12 @@ GEM
       async-http (~> 0.53)
     async-io (1.30.2)
       async (~> 1.14)
-    async-pool (0.3.4)
+    async-pool (0.3.5)
       async (~> 1.25)
     build-environment (1.13.0)
-    console (1.10.1)
+    console (1.11.1)
       fiber-local
-    falcon (0.37.2)
+    falcon (0.37.3)
       async (~> 1.13)
       async-container (~> 0.16.0)
       async-http (~> 0.54.0)
@@ -37,13 +37,13 @@ GEM
       rack (>= 1.0)
       samovar (~> 2.1)
     fiber-local (1.0.0)
-    graphql (1.12.4)
+    graphql (1.12.8)
     graphql-batch (0.4.3)
       graphql (>= 1.3, < 2)
       promise.rb (~> 0.7.2)
-    localhost (1.1.6)
+    localhost (1.1.7)
     mapping (1.1.1)
-    nio4r (2.5.5)
+    nio4r (2.5.7)
     process-metrics (0.2.1)
       console (~> 1.8)
       samovar (~> 2.1)
@@ -59,7 +59,8 @@ GEM
     samovar (2.1.4)
       console (~> 1.0)
       mapping (~> 1.0)
-    timers (4.3.2)
+    thread-local (1.1.0)
+    timers (4.3.3)
 
 PLATFORMS
   ruby
@@ -69,9 +70,7 @@ DEPENDENCIES
   falcon
   graphql-batch
   rack
-
-RUBY VERSION
-   ruby 2.7.2p137
+  thread-local
 
 BUNDLED WITH
    2.1.4

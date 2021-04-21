@@ -2,7 +2,7 @@ require_relative "async_loader"
 
 class App
   def self.call(env)
-    puts "Request start"
+    Console.logger.info "Request start"
 
     result = {}
 
@@ -20,7 +20,7 @@ class App
       end
     end
 
-    puts "Request finish"
+    Console.logger.info "Request finish"
 
     [200, {}, [result.to_json]]
   end

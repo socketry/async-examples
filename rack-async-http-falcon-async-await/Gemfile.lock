@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    async (1.28.9)
+    async (1.29.0)
       console (~> 1.10)
       nio4r (~> 2.3)
       timers (~> 4.1)
@@ -25,7 +25,7 @@ GEM
     async-pool (0.3.5)
       async (~> 1.25)
     build-environment (1.13.0)
-    console (1.10.2)
+    console (1.11.1)
       fiber-local
     falcon (0.37.3)
       async (~> 1.13)
@@ -69,8 +69,5 @@ DEPENDENCIES
   falcon
   rack
 
-RUBY VERSION
-   ruby 3.0.0p0
-
 BUNDLED WITH
-   2.2.5
+   2.2.15
