@@ -3,21 +3,24 @@ require "async/http/internet"
 
 class App
   def self.call(env)
-    puts "Request start"
-
     internet = Async::HTTP::Internet.new
-
     url = "https://httpbin.org/delay/1"
+
+    # headers can be a hash...
+    headers = {
+      "accept-encoding" => "gzip",
+      "user-agent" => "example",
+    }
+
+    # ...or an array...
     headers = [
-      ["Accept-Encoding", "gzip"],
-      ["User-Agent", "example"],
+      ["accept-encoding", "gzip"],
+      ["user-agent", "example"],
     ]
 
-    response = internet.get(url, headers).read
-    data = JSON.parse(response)
+    response = internet.get(url, headers)
+    body = JSON.parse(response.read)
 
-    puts "Request finish"
-
-    [200, {}, [data.to_json]]
+    [200, {}, [body.to_json]]
   end
 end
