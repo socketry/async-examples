@@ -1,6 +1,17 @@
 require "async"
 require "async/http/internet"
 
+# Re: https://github.com/socketry/async-http/issues/68
+class Internet < Async::HTTP::Internet
+	def client_for(endpoint)
+		Protocol::HTTP::AcceptEncoding.new(super).tap do |middleware|
+			def middleware.scheme
+				"https"
+			end
+		end
+	end
+end
+
 class App
   def self.call(env)
     internet = Async::HTTP::Internet.new
