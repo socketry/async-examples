@@ -1,12 +1,7 @@
 require "async"
 require "async/barrier"
-require "async/http/internet"
-require "thread/local"
+require "async/http/internet/instance"
 require "kernel/sync"
-
-class Async::HTTP::Internet
-  extend Thread::Local
-end
 
 class AsyncLoader < GraphQL::Batch::Loader
   def perform(urls)
