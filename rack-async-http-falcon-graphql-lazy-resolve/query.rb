@@ -1,5 +1,4 @@
-require "async/http/internet"
-require "thread/local"
+require "async/http/internet/instance"
 
 class Query < GraphQL::Schema::Object
   field :one, String, null: false
@@ -18,16 +17,8 @@ class Query < GraphQL::Schema::Object
     Async { delay_2_data["url"] }
   end
 
-  module Internet
-    extend Thread::Local
-
-    def self.local
-      Async::HTTP::Internet.new
-    end
-  end
-
   def internet
-    Internet.instance
+    Async::HTTP::Internet.instance
   end
 
   def delay_1_semaphore
