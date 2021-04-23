@@ -8,4 +8,4 @@ Notes:
 
  Running:
 
-    bundle exec falcon serve --count 1
+    falcon serve --count 1
