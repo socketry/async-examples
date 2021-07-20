@@ -41,7 +41,6 @@ class Query < GraphQL::Schema::Object
             JSON.parse(response.read)
           ensure
             response.finish
-            puts "1"
           end
         end
       end
