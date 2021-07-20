@@ -10,8 +10,13 @@ class AsyncLoader < GraphQL::Batch::Loader
     urls.each do |url|
       barrier.async do
         Console.logger.info "AsyncHttp#get: #{url}"
-        body = JSON.parse(internet.get(url).read)
-        fulfill(url, body)
+        begin
+          response = internet.get(url)
+          body = JSON.parse(response.read)
+          fulfill(url, body)
+        ensure
+          response.finish
+        end
         Console.logger.info "AsyncHttp#fulfill: #{url}"
       end
     end
