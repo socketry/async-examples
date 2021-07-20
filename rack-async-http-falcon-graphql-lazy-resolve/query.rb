@@ -33,7 +33,12 @@ class Query < GraphQL::Schema::Object
     delay_1_semaphore.async do |task|
       @_delay_1_data ||= begin
         Console.logger.measure(self, "delay_1_data") do
-          JSON.parse(internet.get("https://httpbin.org/delay/1").read)
+          begin
+            response = internet.get("https://httpbin.org/delay/1")
+            JSON.parse(response.read)
+          ensure
+            response.finish
+          end
         end
       end
     end.wait
@@ -43,7 +48,12 @@ class Query < GraphQL::Schema::Object
     delay_2_semaphore.async do |task|
       @_delay_2_data ||= begin
         Console.logger.measure(self, "delay_2_data") do
-          JSON.parse(internet.get("https://httpbin.org/delay/2").read)
+          begin
+            response = internet.get("https://httpbin.org/delay/2")
+            JSON.parse(response.read)
+          ensure
+            response.finish
+          end
         end
       end
     end.wait

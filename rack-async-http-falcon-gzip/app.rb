@@ -18,8 +18,12 @@ class App
       ["user-agent", "example"],
     ]
 
-    response = internet.get(url, headers)
-    body = JSON.parse(response.read)
+    begin
+      response = internet.get(url, headers)
+      body = JSON.parse(response.read)
+    ensure
+      response.finish
+    end
 
     [200, {}, [body.to_json]]
   end
