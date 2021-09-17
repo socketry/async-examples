@@ -1,0 +1,11 @@
+source "https://rubygems.org"
+
+gem "rack"
+gem "puma"
+gem "async-http"
+gem "thread-local"
+gem "graphql"
+gem "graphql-batch"
+gem "concurrent-ruby"
+gem "faraday"
+gem "async-http-faraday"
