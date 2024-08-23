@@ -11,7 +11,7 @@ class StreamingController < ApplicationController
     
     body = lambda do |stream|
       chunks = Async::Queue.new
-      
+    
       request_task = Async do
         $stderr.puts "Downloading..."
         response = Faraday.get("https://httpbin.org/stream/100") do |request|
@@ -35,7 +35,6 @@ class StreamingController < ApplicationController
       stream.close
     end
     
-    $stderr.puts "Assigning response..."
     self.response = Rack::Response[200, headers, body]
   end
 end
