@@ -8,6 +8,25 @@ This example demonstrates how to use Unicorn with the Async gem to handle HTTP r
 $ dd if=/dev/random bs=1M count=1 2>/dev/null | curl -X POST -H "Content-Type: application/octet-stream" --data-binary @- http://localhost:9292 --output echoed.bin
 ```
 
+## Drip feeding requests
+
+Install `pv` if not available.
+
+### For a simple GET request (drip-feed the headers)
+
+```
+echo -e "GET / HTTP/1.1\r\nHost: localhost:9292\r\nConnection: close\r\n\r\n" | pv -L 1 | nc localhost 9292
+```
+
+### For a POST request with data
+
+```
+{
+  echo -e "POST / HTTP/1.1\r\nContent-Length: 100\r\nHost: localhost:9292\r\n\r\n"
+  yes "a" | head -100 | tr -d '\n'
+} | pv -L 1 | nc localhost 9292
+```
+
 ## Notes on errors
 
 Unicorn writes a slightly different response when `RACK_ENV=none` is set.

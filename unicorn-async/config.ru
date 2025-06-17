@@ -1,7 +1,7 @@
 class MyApp
 	def call(env)
 		# Read the request body if it exists
-		request_body = env['rack.input'].read
+		request_body = env['rack.input']&.read
 		
 		# If there's a request body, echo it back, otherwise return "Hello, World!"
 		response_body = request_body.empty? ? "Hello, World!" : request_body
