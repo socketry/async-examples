@@ -2,6 +2,12 @@
 
 This example demonstrates how to use Unicorn with the Async gem to handle HTTP requests with asynchronous capabilities.
 
+## Echoing a large amount of data
+
+```
+$ dd if=/dev/random bs=1M count=1 2>/dev/null | curl -X POST -H "Content-Type: application/octet-stream" --data-binary @- http://localhost:9292 --output echoed.bin
+```
+
 ## Notes on errors
 
 Unicorn writes a slightly different response when `RACK_ENV=none` is set.
