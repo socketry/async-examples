@@ -2,6 +2,14 @@
 
 This example demonstrates how to use Unicorn with the Async gem to handle HTTP requests with asynchronous capabilities.
 
+## Usage
+
+### Starting the Server
+
+```
+$ unicorn -E production --no-default-middleware
+```
+
 ## Echoing a large amount of data
 
 ```
