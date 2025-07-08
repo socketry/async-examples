@@ -1,0 +1,157 @@
+---
+timestamp: '2025-07-08T16:11:48+12:00'
+ruby_versions:
+  '2.5':
+    platform: x86_64-linux
+    memory_usage:
+      fiber_time: 82.26
+      thread_time: 1213.343
+      ratio: 14.8
+      fiber_creation_rate: 121566
+      thread_creation_rate: 8242
+      fiber_switch_rate: 243133
+      thread_switch_rate: 16483
+      fiber_memory_used: 146538496
+      fiber_memory_per_unit: 14653
+      thread_memory_used: 102850560
+      thread_memory_per_unit: 10285
+    context_switching:
+      fiber_time: 8.586
+      thread_time: 17.758
+      ratio: 2.1
+      fiber_creation_rate: 233
+      thread_creation_rate: 113
+      fiber_switch_rate: 2329366
+      thread_switch_rate: 1126268
+  '2.6':
+    platform: x86_64-linux
+    memory_usage:
+      fiber_time: 63.591
+      thread_time: 761.882
+      ratio: 12.0
+      fiber_creation_rate: 157255
+      thread_creation_rate: 13125
+      fiber_switch_rate: 314510
+      thread_switch_rate: 26251
+      fiber_memory_used: 96993280
+      fiber_memory_per_unit: 9699
+      thread_memory_used: 95694848
+      thread_memory_per_unit: 9569
+    context_switching:
+      fiber_time: 3.224
+      thread_time: 12.396
+      ratio: 3.8
+      fiber_creation_rate: 620
+      thread_creation_rate: 161
+      fiber_switch_rate: 6204124
+      thread_switch_rate: 1613486
+  '2.7':
+    platform: x86_64-linux
+    memory_usage:
+      fiber_time: 43.894
+      thread_time: 251.127
+      ratio: 5.7
+      fiber_creation_rate: 227821
+      thread_creation_rate: 39820
+      fiber_switch_rate: 455643
+      thread_switch_rate: 79641
+      fiber_memory_used: 131596288
+      fiber_memory_per_unit: 13159
+      thread_memory_used: 180092928
+      thread_memory_per_unit: 18009
+    context_switching:
+      fiber_time: 4.737
+      thread_time: 12.16
+      ratio: 2.6
+      fiber_creation_rate: 422
+      thread_creation_rate: 164
+      fiber_switch_rate: 4222008
+      thread_switch_rate: 1644785
+  '3.0':
+    platform: x86_64-linux
+    memory_usage:
+      fiber_time: 43.807
+      thread_time: 199.107
+      ratio: 4.5
+      fiber_creation_rate: 228276
+      thread_creation_rate: 50224
+      fiber_switch_rate: 456552
+      thread_switch_rate: 100448
+      fiber_memory_used: 131072000
+      fiber_memory_per_unit: 13107
+      thread_memory_used: 186908672
+      thread_memory_per_unit: 18690
+    context_switching:
+      fiber_time: 3.41
+      thread_time: 9.481
+      ratio: 2.8
+      fiber_creation_rate: 586
+      thread_creation_rate: 211
+      fiber_switch_rate: 5864901
+      thread_switch_rate: 2109526
+  '3.1':
+    platform: x86_64-linux
+    memory_usage:
+      fiber_time: 41.025
+      thread_time: 197.756
+      ratio: 4.8
+      fiber_creation_rate: 243752
+      thread_creation_rate: 50567
+      fiber_switch_rate: 487504
+      thread_switch_rate: 101135
+      fiber_memory_used: 131334144
+      fiber_memory_per_unit: 13133
+      thread_memory_used: 188743680
+      thread_memory_per_unit: 18874
+    context_switching:
+      fiber_time: 3.679
+      thread_time: 12.946
+      ratio: 3.5
+      fiber_creation_rate: 544
+      thread_creation_rate: 154
+      fiber_switch_rate: 5436582
+      thread_switch_rate: 1544850
+  '3.2':
+    platform: x86_64-linux
+    memory_usage:
+      fiber_time: 45.668
+      thread_time: 242.413
+      ratio: 5.3
+      fiber_creation_rate: 218972
+      thread_creation_rate: 41252
+      fiber_switch_rate: 437944
+      thread_switch_rate: 82504
+      fiber_memory_used: 131596288
+      fiber_memory_per_unit: 13159
+      thread_memory_used: 186646528
+      thread_memory_per_unit: 18664
+    context_switching:
+      fiber_time: 2.828
+      thread_time: 17.069
+      ratio: 6.0
+      fiber_creation_rate: 707
+      thread_creation_rate: 117
+      fiber_switch_rate: 7072974
+      thread_switch_rate: 1171726
+  '3.4':
+    platform: x86_64-linux
+    memory_usage:
+      fiber_time: 50.094
+      thread_time: 918.099
+      ratio: 18.3
+      fiber_creation_rate: 199625
+      thread_creation_rate: 10892
+      fiber_switch_rate: 399250
+      thread_switch_rate: 21784
+      fiber_memory_used: 131072000
+      fiber_memory_per_unit: 13107
+      thread_memory_used: 111177728
+      thread_memory_per_unit: 11117
+    context_switching:
+      fiber_time: 3.076
+      thread_time: 50.022
+      ratio: 16.3
+      fiber_creation_rate: 650
+      thread_creation_rate: 40
+      fiber_switch_rate: 6501338
+      thread_switch_rate: 399828
